@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class LeverBehaviour : MonoBehaviour
 {
+    //This is the object the lever interacts with
     public playerBehaviour player;
 
-    // Update is called once per frame
-    void Update()
+    //Allows access to the animators finite state machine's paramaters 
+    public Animator animator;
+
+    /// <summary>
+    /// If the left mouse button is clicked while it is over the lever object
+    /// Call the toggle active bool from the passed gameobject
+    /// Toggle the animators isLeft boolean to trigger the animation
+    /// Playes the levers Audio Clip
+    /// </summary>
+    private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit.transform != null)
+            if(animator.GetBool("isLeft"))
             {
-                player.printName();
-                //printName(hit.transform.gameObject);
+                animator.SetBool("isLeft", false);
             }
-        }
-    }
+            else
+            {
+                animator.SetBool("isLeft", true);
+            }
 
-    private void printName(GameObject go)
-    {
-        print(go.name);
+            this.GetComponent<AudioSource>().Play();
+            player.toggleActive();
+        }
     }
 }

@@ -4,14 +4,32 @@ using UnityEngine;
 
 public class playerBehaviour : MonoBehaviour
 {
-    // Update is called once per frame
+    bool active = false;
+
+    /// <summary>
+    /// If active print the players name
+    /// </summary>
     void Update()
     {
-        
+        if(active)
+        {
+            print(name);
+        }
     }
 
-    public void printName()
+    /// <summary>
+    /// Turns the player on or off
+    /// Must be a public function
+    /// </summary>
+    public void toggleActive()
     {
-        print(name);
+        if(active)
+        {
+            active = false;
+        }
+        else
+        {
+            active = true;
+        }
     }
 }
