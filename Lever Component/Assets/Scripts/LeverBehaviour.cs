@@ -10,7 +10,7 @@ public class LeverBehaviour : MonoBehaviour
     //Allows access to the animators finite state machine's paramaters 
     public Animator animator;
 
-    int count = 120;
+    int count = 60;
 
     /// <summary>
     ///  count prevents click spamming
@@ -30,7 +30,7 @@ public class LeverBehaviour : MonoBehaviour
     /// </summary>
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0) && count > 120)
+        if(Input.GetMouseButtonDown(0) && count > 60)
         {
             if(animator.GetBool("isLeft"))
             {
