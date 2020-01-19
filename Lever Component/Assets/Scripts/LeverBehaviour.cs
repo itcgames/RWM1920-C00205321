@@ -10,6 +10,18 @@ public class LeverBehaviour : MonoBehaviour
     //Allows access to the animators finite state machine's paramaters 
     public Animator animator;
 
+    int count = 120;
+
+    /// <summary>
+    ///  count prevents click spamming
+    /// which caused an animation bug where it would get locked in an animation state
+    /// because the bool would change before the animation could transition
+    /// </summary>
+    private void Update()
+    {
+        count++;
+    }
+
     /// <summary>
     /// If the left mouse button is clicked while it is over the lever object
     /// Call the toggle active bool from the passed gameobject
@@ -18,7 +30,7 @@ public class LeverBehaviour : MonoBehaviour
     /// </summary>
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && count > 120)
         {
             if(animator.GetBool("isLeft"))
             {
@@ -31,6 +43,8 @@ public class LeverBehaviour : MonoBehaviour
 
             this.GetComponent<AudioSource>().Play();
             player.toggleActive();
+
+            count = 0;
         }
     }
 }
