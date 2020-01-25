@@ -8,12 +8,8 @@ public class SplashScript : MonoBehaviour
 {
     public float timeLimit;
     public Text timerText;
-    float timer;
-    void Start()
-    {
-        timer = 6;
-        
-    }
+    public float timer = 6;
+
     void Update()
     {
         timer -= Time.deltaTime;

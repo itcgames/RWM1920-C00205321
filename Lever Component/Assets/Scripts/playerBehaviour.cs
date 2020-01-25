@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerBehaviour : MonoBehaviour
 {
-    bool active = false;
+    public bool active = false;
 
     /// <summary>
     /// If active print the players name

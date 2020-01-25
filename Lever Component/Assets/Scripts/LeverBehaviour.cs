@@ -10,7 +10,7 @@ public class LeverBehaviour : MonoBehaviour
     //Allows access to the animators finite state machine's paramaters 
     public Animator animator;
 
-    int count = 60;
+    public int count = 60;
 
     /// <summary>
     ///  count prevents click spamming

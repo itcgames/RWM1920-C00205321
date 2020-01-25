@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LicenceBehaviour : MonoBehaviour
 {
-
-    
     void Update()
     {
         if (Input.anyKey)
